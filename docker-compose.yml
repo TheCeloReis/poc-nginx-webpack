@@ -1,0 +1,25 @@
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:80
+    depends_on:
+      - client1
+      - client2
+
+  client1:
+    build:
+      context: ./client1
+      dockerfile: ./Dockerfile
+    ports:
+      - 3001:8080
+
+  client2:
+    build:
+      context: ./client2
+      dockerfile: ./Dockerfile
+    ports:
+      - 3002:8081
