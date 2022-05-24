@@ -16,6 +16,10 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 3001:8080
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+    volumes:
+      - ./client1:/app
 
   client2:
     build:
@@ -23,3 +27,7 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 3002:8081
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+    volumes:
+      - ./client2:/app
