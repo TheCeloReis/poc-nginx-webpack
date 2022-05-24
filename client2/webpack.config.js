@@ -17,6 +17,7 @@ module.exports = {
   output: {
     path: '/dist',
     filename: '[name].bundle.js',
+    publicPath: '/admin',
   },
 
   // Customize the webpack build process
@@ -43,5 +44,11 @@ module.exports = {
     hot: true,
     port: 8081,
     historyApiFallback: true,
+
+    devMiddleware: {
+      index: true,
+      mimeTypes: { phtml: 'text/html' },
+      publicPath: '/admin',
+    },
   },
 }
